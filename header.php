@@ -1,0 +1,6 @@
+<?php $page = basename($_SERVER['PHP_SELF']); ?>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MR Gestão Logística</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="assets/style.css" rel="stylesheet"></head><body>
+<nav class="navbar navbar-expand-lg"><div class="container"><a class="navbar-brand" href="index.php"><span class="brand-mark">MR</span>MR Gestão Logística</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="menu"><div class="navbar-nav ms-auto gap-lg-2">
+<?php foreach (['index.php'=>'Início','produtos.php'=>'Produtos','enderecos.php'=>'Endereços','transportadores.php'=>'Transportadores','fretes.php'=>'Fretes','relatorio.php'=>'Relatórios'] as $url=>$label): ?><a class="nav-link <?= $page===$url?'active':'' ?>" href="<?= $url ?>"><?= $label ?></a><?php endforeach; ?>
+</div></div></div></nav><main class="container">
+<?php if (!empty($_SESSION['flash'])): [$msg,$kind]=$_SESSION['flash']; unset($_SESSION['flash']); ?><div class="alert alert-<?= h($kind) ?> mt-3"><?= h($msg) ?></div><?php endif; ?>
